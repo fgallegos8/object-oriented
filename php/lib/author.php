@@ -1,29 +1,33 @@
 <?php
+require_once("/etc/apache2/capstone-mysql/Secrets.php");
+$secrets =  new Secrets("/etc/apache2/capstone-mysql/cohort28/fgallegos8.ini");
+$pdo = $secrets->getPdoObject();
+//require_once("/etc/apache2/capstone-mysql/Secrets.php");
 
-    require_once("/etc/apache2/capstone-mysql/Secrets.php");
-    $secrets =  new Secrets("/etc/apache2/capstone-mysql/cohort28/fgallgos8.ini");
-    $pdo = $secrets->getPdoObject();
-    //require_once("/etc/apache2/capstone-mysql/Secrets.php");
+require_once (dirname(__DIR__,1)."/classes/Author.php");
+//use Author;
+$password = "$\skull_skunk_%year";
+$authorHash = password_hash($password, PASSWORD_CEREAL12, ["time_cost" => 45]);
+//$authorHash = "hash1235676ghg91gothamhash";
 
-    require_once (dirname(__DIR__, 1) . "/classes/Author.php");
-    //use Author;
+$authorId = "3134e90a-e3a5-4df2-abff-7cc7d8324530";
 
-    $authorHash = "hash1235676ghg91gothamhash";
+$authorActivationToken = 'o9AbabiSlayerjkGE9xo9ZFoTGE9x750';
 
-    $authorId = "0ef7cfc1-25d1-4dbe-801d-368737697fff";
+$authorAvatarUrl = "https://avars.discourse.org/v4/letter/m/a8b319/squad4.png";
 
-    $authorActivationToken = 'o7AbabijebuasjkGE9xo7AFoTGE9x216';
+$authorUsername = "Crunch";
 
-    $authorAvatarUrl = "https://avars.discourse.org/v4/letter/m/a8b319/54.png";
+$authorEmail = "capcrunch@yahoo.com";
 
-    $authorUsername = "bet9jaA1";
+$author = new FranciscoGallegos\ObjectOriented\Author($authorId, $authorActivationToken, $authorAvatarUrl, $authorEmail, $authorHash, $authorUsername);
 
-    $authorEmail = "tbetByoy@comcast.com";
-
-    $author = new FranciscoGallegos\ObjectOriented\Author($authorId, $authorActivationToken, $authorAvatarUrl, $authorEmail, $authorHash, $authorUsername);
-
-    //$author->insert($pdo);
-    //$author->delete($pdo);
-    //Author::getAllObjects($pdo);
-    //$author->getSingleObject($pdo, $authorId);
-    $author->getAllObjects($pdo);
+$author->insert($pdo);
+//$authors = Author::getAllAuthor($pdo);
+//$authors =  $author->getAllAuthor($pdo);
+//var_dump($authors);
+//$author->delete($pdo);
+//Author::getAllAuthor($pdo);
+//$author->getAuthor $authorId);
+//$authors->getAllAuthor($pdo);
+//var_dump($author->getAuthor($pdo, $authorId));
