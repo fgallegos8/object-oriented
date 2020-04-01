@@ -1,11 +1,11 @@
 <?php
 
     require_once("/etc/apache2/capstone-mysql/Secrets.php");
-    $secrets =  new Secrets("/etc/apache2/capstone-mysql/cohort28/ojonah.ini");
+    $secrets =  new Secrets("/etc/apache2/capstone-mysql/cohort28/fgallgos8.ini");
     $pdo = $secrets->getPdoObject();
     //require_once("/etc/apache2/capstone-mysql/Secrets.php");
 
-    require_once (dirname(__DIR__,1)."/classes/Author.php");
+    require_once (dirname(__DIR__, 1) . "/classes/Author.php");
     //use Author;
 
     $authorHash = "hash1235676ghg91gothamhash";
@@ -20,7 +20,7 @@
 
     $authorEmail = "tbetByoy@comcast.com";
 
-    $author = new OpeyemiJonah\ObjectOriented\Author($authorId, $authorActivationToken, $authorAvatarUrl, $authorEmail, $authorHash, $authorUsername);
+    $author = new FranciscoGallegos\ObjectOriented\Author($authorId, $authorActivationToken, $authorAvatarUrl, $authorEmail, $authorHash, $authorUsername);
 
     //$author->insert($pdo);
     //$author->delete($pdo);

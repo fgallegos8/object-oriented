@@ -15,7 +15,7 @@
         * prefix: the prefix for all the classes (i.e., the namespace)
         * baseDir: the base directory for all classes (default = current directory)
         **/
-        $prefix = "fgallegos8\\object-oriented";
+        $prefix = "FranciscoGallegos\\ObjectOriented";
         $baseDir = __DIR__;
 
         // does the class use the namespace prefix?
