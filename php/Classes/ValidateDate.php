@@ -1,5 +1,5 @@
 <?php
-    namespace FranciscoGallegos\ObjectOriented;
+    namespace fgallegos8\ObjectOriented;
     use InvalidArgumentException;
 
     /**

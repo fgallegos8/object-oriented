@@ -1,10 +1,10 @@
 <?php
-require_once("/etc/apache2/capstone-mysql/Secrets.php");
-$secrets =  new Secrets("/etc/apache2/capstone-mysql/cohort28/fgallegos8.ini");
-$pdo = $secrets->getPdoObject();
+//require_once("/etc/apache2/capstone-mysql/Secrets.php");
+//$secrets =  new Secrets("/etc/apache2/capstone-mysql/cohort28/fgallegos8.ini");
+//$pdo = $secrets->getPdoObject();
 //require_once("/etc/apache2/capstone-mysql/Secrets.php");
 
-require_once (dirname(__DIR__,1)."/classes/Author.php");
+require_once (dirname(__DIR__,1)."/Classes/Author.php");
 //use Author;
 $password = "$\skull_skunk_%year";
 $authorHash = password_hash($password, PASSWORD_ARGON2I, ["time_cost" => 45]);
@@ -20,9 +20,9 @@ $authorUsername = "Andre3000";
 
 $authorEmail = "Aundre@cnm.edu";
 
-$author = new FranciscoGallegos\ObjectOriented\Author($authorId, $authorActivationToken, $authorAvatarUrl, $authorEmail, $authorHash, $authorUsername);
-
-$author->insert($pdo);
+$author = new fgallegos8\ObjectOriented\Author($authorId, $authorActivationToken, $authorAvatarUrl, $authorEmail, $authorHash, $authorUsername);
+var_dump($author);
+//$author->insert($pdo);
 //$authors = Author::getAllAuthor($pdo);
 //$authors =  $author->getAllAuthor($pdo);
 //var_dump($authors);
