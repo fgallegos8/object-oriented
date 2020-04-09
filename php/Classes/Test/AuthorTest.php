@@ -30,9 +30,26 @@ class AuthorTest extends DataDesignTest {
 
 
     public function  testInsertValidAuthor() : void {
+        //get count of author records in db before we run the test.
+        $numRows = $this->getConnection()->getRowCount("author");
+
+        //insert a record in the db
+        $authorId = generateUuidV4()->toString();
+        $author = new Author($authorId, $this->Valid_Activation_Token, $this->Valid_Avatar_Url, $this->Valid_Author_Email, $this->Valid_Author_Hash, $this->Valid_Username);
+        $author->insert($this->getPDO());
+
+        //check count of author records in the db after the insert
+        $numRowsAfterInsert = $this->getConnection()->getRowCount("author");
+        self::assertEquals($numRows + 1, $numRowsAfterInsert, "insert checked record count");
+
+
+        //get a copy of the record just inserted and validate the values
+        //make sure the values that went into the record are the same ones that come out.
+
+
 
     }
-
+/*
     public function testUpdateValidAuthor() : void {
 
     }
@@ -48,6 +65,6 @@ class AuthorTest extends DataDesignTest {
     public function testGetValidAuthors() : void {
 
     }
-
+*/
 
 }
